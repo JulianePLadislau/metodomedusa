@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="#" text="Voltar" icon="arrow-back" color="light"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="background-image">
+    <div class="login-container">
+      <!-- Logotipo -->
+      <ion-img class="logo-image" src="/assets/img/logo.png"></ion-img>
+
+      <!-- Formulário de cadastro -->
+      <div class="form-container">
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="text" id="nome" placeholder="Nome" [(ngModel)]="nome"></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="text" id="sobrenome" placeholder="Sobrenome" [(ngModel)]="sobrenome"></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="text" id="cpf" placeholder="Digite seu CPF" [(ngModel)]="cpf" (input)="validarCPF()" maxlength="11"></ion-input>
+          <ion-label *ngIf="cpfInvalido" color="danger">CPF inválido!</ion-label>
+          <ion-label *ngIf="cpfJaCadastrado" color="danger">CPF já cadastrado!</ion-label>
+        </ion-item>
+
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input id="dataNascimento" type="text" placeholder="Data de Nascimento" readonly (click)="abrirCalendario()" [(ngModel)]="dataNascimento"></ion-input>
+          <ion-label *ngIf="!dataNascimento && dataNascimento !== ''" color="danger">Informe a data de nascimento!</ion-label>
+        </ion-item>
+
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="email" id="email" placeholder="E-mail" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="{{ senhaVisivel ? 'text' : 'password' }}" id="senha" placeholder="Senha" [(ngModel)]="senha"></ion-input>
+          <ion-icon name="{{ senhaVisivel ? 'eye-off' : 'eye' }}" slot="end" style="cursor: pointer;" color="medium" (click)="togglePasswordVisibility()"></ion-icon>
+        </ion-item>
+        
+        <br>
+
+        <ion-label class="ion-text-center ion-margin-top">
+          <p>Ao se cadastrar, você se declara ciente e concorda com as nossas políticas de privacidade.</p>
+        </ion-label>
+
+        <ion-button (click)="cadastrar()" class="ion-margin-top" color="dark" expand="block">
+          Criar conta
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

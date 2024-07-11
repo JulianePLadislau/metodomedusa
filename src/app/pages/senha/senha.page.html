@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="#" text="Voltar" color="light"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="background-image">
+    <div class="login-container">
+      <!-- Logotipo -->
+      <div class="form-container">
+        <ion-img class="logo-image" src="/assets/img/logo.png"></ion-img>
+
+        <ion-label class="ion-text-center ion-margin-top">
+          <h1 style="font-weight: bold;">Esqueceu sua senha?</h1><br>
+          <span style="color: black">Não se preocupe! Insira seu e-mail de cadastro e enviaremos instruções para você.</span>
+        </ion-label>
+
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="email" [(ngModel)]="email" placeholder="E-mail"></ion-input>
+        </ion-item>
+
+        <ion-button (click)="resetPassword()" class="ion-margin-top" color="dark" expand="block">
+          Redefinir senha
+        </ion-button>
+      </div>
+    </div>
+  </div>  
+</ion-content>

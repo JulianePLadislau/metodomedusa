@@ -1,0 +1,54 @@
+<ion-content>
+  <div class="background-image">
+    <div class="login-container">
+      <!-- Logotipo -->
+      <ion-img class="logo-image" src="/assets/img/logo.png"></ion-img>
+
+      <!-- Formulário de Login -->
+      <div class="form-container">
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="email" placeholder="E-mail" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="{{ showPassword ? 'text' : 'password' }}" placeholder="Senha" [(ngModel)]="password"></ion-input>
+          <ion-icon name="{{ showPassword ? 'eye-off' : 'eye' }}" slot="end" style="cursor: pointer;" (click)="togglePasswordVisibility()" color="medium"></ion-icon>
+        </ion-item>
+
+        <ion-button (click)="login()" class="ion-margin-top login-button" color="dark" expand="block" ion-ripple-effect>
+          Entrar
+        </ion-button>
+        
+        
+
+        <!-- Mensagem de Recuperação de Senha -->
+        <ion-label class="ion-text-center ion-margin-top">
+          <a href="/senha" style="color: black;">Esqueceu a senha?</a>
+        </ion-label>
+
+        <!-- Linha com 'ou' no meio -->
+        <div class="divider">
+          <div class="line"></div>
+          <div class="or-text">ou</div>
+          <div class="line"></div>
+        </div>
+
+        <!--Botão Cadastro com Google-->
+        <ion-row class="ion-justify-content-center ion-margin-top">
+          <ion-col size="12">
+            <ion-button (click)="loginWithGoogle()" class="google-button ion-margin-top" color="light" expand="block" style="height: 48px; display: flex; align-items: center; justify-content: center;">
+              <img src="/assets/img/google.png" alt="Google logo" class="google-icon" style="width: 30px;">
+              <span style="margin-left: 8px;">Entrar com Google</span>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <br>
+
+        <ion-label class="ion-text-center ion-margin-top" style="margin-top: 30px;">
+          Não tem uma conta? <a href="/cadastro" style="color: black;">Cadastre-se</a>.
+        </ion-label>
+
+      </div>
+    </div>
+  </div>
+</ion-content>

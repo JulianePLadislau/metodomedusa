@@ -1,0 +1,12 @@
+[
+  {
+    "collectionGroup": "posts",
+    "queryScope": "COLLECTION",
+    "fields": [
+      {
+        "fieldPath": "timestamp",
+        "order": "DESCENDING"
+      }
+    ]
+  }
+]
